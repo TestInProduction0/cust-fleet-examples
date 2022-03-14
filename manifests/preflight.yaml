@@ -1,0 +1,38 @@
+apiVersion: troubleshoot.sh/v1beta2
+kind: Preflight
+metadata:
+  name: preflight-check
+spec:
+  analyzers: 
+    - clusterVersion:
+      - fail: 
+        when: "< 1.18.0"
+        message: The application requires Kubernetes 1.18.0 or later
+        uri: https://kubernetes.io
+      - warn: "< 1.19.0"
+        message: Your cluster meets the minimum required version of Kubernetes, but we recommend you update to 1.19.0 or later. 
+        uri: https://kubernetes.io
+      - pass: 
+        message: Your cluster version meets the recommended and required versions of Kubernetes.
+    - nodeResources:
+      checkName: One node must have at least 2 GB Memory and 1 CPU
+      filters:
+        allocatableMemory: 2Gi
+        cpuCapacity: "1"
+      outcomes:
+        - fail:
+          when: count() < 1
+          message: Cannot find a node with sufficient memory and CPU
+        - pass:
+          message: Sufficient CPU and memory is available
+    - nodeResources:
+      checkName: Must have at least 3 nodes in the cluster
+      outcomes:
+        - fail:
+            when: "count() < 3"
+            message: This application requires at least 3 nodes
+        - warn:
+            when: "count() < 5"
+            message: This application recommends at last 5 nodes.
+        - pass:
+            message: This cluster has enough nodes.
