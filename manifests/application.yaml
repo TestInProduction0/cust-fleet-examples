@@ -1,0 +1,14 @@
+apiVersion: kots.io/v1beta1
+kind: Application
+metadata:
+  name: my-application
+spec:
+  title: Test Application
+  icon: https://img.favpng.com/0/20/2/project-icon-business-management-icon-project-management-icon-png-favpng-05qyCDKe21ZX6CfmJZGaDXzN7.jpg
+  statusInformers:
+  - deployment/frontend-deployment.yaml
+  - service/frontend-service.yaml
+  - deployment/redis-master-deployment.yaml
+  - service/redis-master-service.yaml
+  - deployment/redis-slave-deployment.yaml
+  - service/redis-slave-service.yaml
