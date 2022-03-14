@@ -1,0 +1,1 @@
+this is an older repository, originally meant to show off Fleet as a CD solution. I'm repurposing it for packaging and managing a simple K8s application using redis.
