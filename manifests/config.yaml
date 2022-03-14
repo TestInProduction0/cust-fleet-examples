@@ -1,0 +1,36 @@
+apiVersion: kots.io/v1beta1
+kind: Config
+metadata:
+  name: my-application
+spec:
+  groups:
+    - name: Group1
+      title: Group One
+      description: Parameter capture for Group One
+      items: 
+        - name: Group1Text
+          title: Text Field Group One
+          type: text
+          default: strrrrrring
+    - name: Group2
+      title: Group Two
+      description: Parameter capture for Group Two
+      items:
+        - name: Group2Text
+          title: Text Field Group Two
+          type: text
+          default: strang
+          reccomended: true
+    - name: certs
+      title: TLS Shenanigans
+      items: 
+        - name: tls_private_key_file
+          title: Private Key
+          type: file
+          recommended: true
+          help_text: Add Private Key File here
+        - name: tls_certificate_file
+          title: Certificate
+          type: file
+          recommended: true
+          help_text: Will use self-signed if no cert is passed. Self signed expires in 30 days
