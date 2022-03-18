@@ -5,32 +5,30 @@ metadata:
 spec:
   groups:
     - name: Group1
-      title: Group One
+      title: Text Field One
       description: Parameter capture for Group One
       items: 
         - name: Group1Text
-          title: Text Field Group One
+          title: Example Text Field Capture One
           type: text
-          default: strrrrrring
+          default: default value
     - name: Group2
-      title: Group Two
+      title: Text Field Two
       description: Parameter capture for Group Two
       items:
         - name: Group2Text
-          title: Text Field Group Two
+          title: Example Text Field Capture Two
           type: text
-          default: strang
+          default: default value 2
           reccomended: true
     - name: certs
-      title: TLS Shenanigans
+      title: Certs
       items: 
         - name: tls_private_key_file
           title: Private Key
           type: file
           recommended: true
-          help_text: Add Private Key File here
         - name: tls_certificate_file
           title: Certificate
           type: file
           recommended: true
-          help_text: Will use self-signed if no cert is passed. Self signed expires in 30 days
