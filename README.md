@@ -4,9 +4,11 @@ When starting out, I set out primarily with one goal in mind - to ingratiate mys
 
 The opportunity to configure my app in such a way that it gave a mix of recommendations, warnings, and generally document a hypothetical set of requirements is immediatley interesting to me as it allows for as tight or loose guardrails around the app as possible.
 
+Having said all of that, my preflight.yaml is currently _not functioning_ in the App Manager UI, so it'd be nice to fix that.
+
 Because of this, my application.yaml and config.yaml are more bare bones. The application.yaml really only creates some status informers of the relevant deployments and services to validate their health, and the config.yaml is not actually linked to the redis application at all and is really just me trying to throw things at the wall and see how they perform in the App Manager UI.
 
-If I were to functionally own this application and move it forward, I would more than likely tear down much of the config.yaml to only parameters that would be relevant to a webserver, so more than likely just a cert/root CA variables. After that, I'd like to add a graph that visualizes the various deployments and services and their memory and CPU consumption therein. If given time, perhaps visualizing traffic rates would be another graph as well.
+If I were to functionally own this application and move it forward, I would more than likely tear down much of the config.yaml to only parameters that would be relevant to a webserver, so more than likely just a cert/root CA variables. After that, I'd like to add a graph that visualizes the various deployments for liveness and readiness probe failures. If given time, visualizing traffic rates would be worth implementing as well.
 
 In terms of what's missing, I have not implemented a support bundle or a troubleshooting.yaml, and they offer themselves as obvious 'next steps' as well. In my time spent learning the KOTS framework I believe the most interesting uses fall in the preflight.yaml, as it offers a very powerful toolset to guardrail licenses apps and in doing so reduce config drift at scale.
 
