@@ -3,6 +3,13 @@ kind: Preflight
 metadata:
   name: preflight-check
 spec:
+  collectors: 
+    - clusterInfo: {}
+    - clusterResources: {}
+    - logs:
+        selector: 
+          - app=redis
+          - app=guestbook
   analyzers: 
     - clusterVersion:
       - fail: 
